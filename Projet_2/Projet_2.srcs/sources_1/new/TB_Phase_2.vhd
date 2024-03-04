@@ -19,33 +19,47 @@ end entity TB_Phase_2;
 architecture testbench of TB_Phase_2 is
 
   -- Définition des paramètres génériques du module testé en constantes 
-  constant G_H_0    : integer := 31; -- valeur maximum pour le délai
-  constant G_H_1    : integer := 31; -- valeur maximum pour le délai
-  constant G_H_2    : integer := 31; -- valeur maximum pour le délai
-  constant G_H_3    : integer := 31; -- valeur maximum pour le délai
-  constant G_H_4    : integer := -32; -- valeur maximum pour le délai
-  constant G_H_5    : integer := -32; -- valeur maximum pour le délai
-  constant G_H_6    : integer := -32; -- valeur maximum pour le délai
-  constant G_H_7    : integer := -32; -- valeu
+  -- Coefficients du filtre FIR
+  constant G_H_0          : integer  := 31; 
+  constant G_H_1          : integer  := 31; 
+  constant G_H_2          : integer  := 31; 
+  constant G_H_3          : integer  := 31; 
+  constant G_H_4          : integer  := -32; 
+  constant G_H_5          : integer  := -32; 
+  constant G_H_6          : integer  := -32; 
+  constant G_H_7          : integer  := -32; 
+  -- Nombre d'échantillons a prendre
+  constant NB_ECHANTILLON : positive := 16;
+  -- Taille de la sortie du generateur de signal
+  constant BIT_WIDTH      : positive := 8;
+  -- Taille de la sortie du module
+  constant BUS_SIZE       : positive := 16;
 
   -- Déclaration du composant à tester
   component Top_Sim is
     generic (
-       G_H_0    : integer := 10; -- valeur maximum pour le délai
-       G_H_1    : integer := 10; -- valeur maximum pour le délai
-       G_H_2    : integer := 10; -- valeur maximum pour le délai
-       G_H_3    : integer := 10; -- valeur maximum pour le délai
-       G_H_4    : integer := 10; -- valeur maximum pour le délai
-       G_H_5    : integer := 10; -- valeur maximum pour le délai
-       G_H_6    : integer := 10; -- valeur maximum pour le délai
-       G_H_7    : integer := 10 -- valeu
+       -- Coefficients du filtre FIR
+       G_H_0          : integer  := 10;
+       G_H_1          : integer  := 10;
+       G_H_2          : integer  := 10;
+       G_H_3          : integer  := 10;
+       G_H_4          : integer  := 10;
+       G_H_5          : integer  := 10;
+       G_H_6          : integer  := 10;
+       G_H_7          : integer  := 10;
+       -- Nombre d'échantillons a prendre
+       NB_ECHANTILLON : positive := 16;
+       -- Taille de la sortie du generateur de signal
+       BIT_WIDTH      : positive :=  8;
+       -- Taille de la sortie du module
+       BUS_SIZE       : positive := 16
     );
     port (
-       i_clk      : in  std_logic;
-       RESET_G    : in  std_logic;
-       i_cen      : in  std_logic;
-       i_switch   : in  std_logic;
-       BUS_SORTIE : out signed(16 downto 0)
+       i_clk      : in  std_logic; -- Horloge du module
+       RESET_G    : in  std_logic; -- Reset du module   
+       i_cen      : in  std_logic; -- Enable de l'horloge
+       i_switch   : in  std_logic; -- Interrupteur pour changer le mode de sortiedu module 
+       BUS_SORTIE : out std_logic_vector(BUS_SIZE-1 downto 0) -- La sortie du module
     );
     end component;
 
@@ -54,7 +68,7 @@ architecture testbench of TB_Phase_2 is
   signal reset      : std_logic;  
   signal cen        : std_logic;
   signal switch     : std_logic;
-  signal BUS_SORTIE : signed(16 downto 0);
+  signal BUS_SORTIE : std_logic_vector(BUS_SIZE-1 downto 0);
 
 begin
 

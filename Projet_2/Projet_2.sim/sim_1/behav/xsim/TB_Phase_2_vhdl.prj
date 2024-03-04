@@ -1,6 +1,5 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
-"../../../../Projet_2.srcs/sources_1/new/Cos_Rom.vhd" \
 "../../../../Projet_2.srcs/sources_1/new/FIR.vhd" \
 "../../../../Projet_2.srcs/sources_1/new/Gen_Sig.vhd" \
 "../../../../Projet_2.srcs/sources_1/new/Mux.vhd" \

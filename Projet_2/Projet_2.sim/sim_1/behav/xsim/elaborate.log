@@ -13,8 +13,7 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling architecture rtl of entity xil_defaultlib.FIR [\FIR(g_h_0=31,g_h_1=31,g_h_2=31,...]
-Compiling architecture rtl of entity xil_defaultlib.Cos_Rom [cos_rom_default]
-Compiling architecture rtl of entity xil_defaultlib.Gen_Sig [gen_sig_default]
+Compiling architecture rtl of entity xil_defaultlib.Gen_sig [gen_sig_default]
 Compiling architecture rtl of entity xil_defaultlib.Mux [mux_default]
 Compiling architecture rtl of entity xil_defaultlib.Top_Sim [\Top_Sim(g_h_0=31,g_h_1=31,g_h_2...]
 Compiling architecture testbench of entity xil_defaultlib.tb_phase_2

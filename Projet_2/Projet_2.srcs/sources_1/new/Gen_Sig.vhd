@@ -1,92 +1,69 @@
 --------------------------------------------------------------------------------
--- Titre    : FIR
+-- Titre    : Generateur de signal
 -- Projet   : ELE739 Phase 2
 --------------------------------------------------------------------------------
 -- Fichier  : Gen_Sig.vhd
--- Auteur   : Guillaume et James
--- Création : 2024-02-24
+-- Auteur   : Guillaume
+-- Création : 2024-02-XX
 --------------------------------------------------------------------------------
--- Description : Generateur de signal
+-- Description : Generateur de signal pour le cosinus
 --------------------------------------------------------------------------------
-library ieee;
-use ieee.std_logic_1164.all; -- Pour les types std_logic et std_logic_vector
-use ieee.numeric_std.all;    -- Pour les types signed et unsigned
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
-entity Gen_Sig is
-  -- La section generic contient les paramètres de configuration du module.
-  -- La section port contient les entrées-sorties du module.
-  port (
-    i_clk   : in  std_logic;
-    i_rst   : in  std_logic;
-    i_cen   : in  std_logic;
-    o_sig   : out signed(7 downto 0)
+entity Gen_sig is
+  generic (
+           NB_ECHANTILLON : positive := 16;    --Nombre d'échantillon pour une période complète du cosinus   
+           BIT_WIDTH      : positive := 8      --Nombre de bits pour représenter l'amplitude
   );
-end;
+  
+  Port ( 
+        i_clk     : in std_logic;
+        RESET_G   : in std_logic;                       --Reset global controllé par un bouton
+        i_cen     : in std_logic;
+        o_cos     : out signed (BIT_WIDTH-1 downto 0)   --Signal de sortie échantillonné du cosinus (Amplitude)
+  );
+end Gen_sig;
 
-architecture rtl of Gen_Sig is
-
-   -- Déclaration du composant pour le FIR
-   component Cos_rom is
-       port (
-           i_addr  : in  unsigned(3 downto 0);
-           o_dat   : out signed(7 downto 0)
-       );
-   end component;
-   
-    -- datatype pour gérées les états du MÉF
-    type cntr_state is (UP, DOWN); 
+architecture rtl of Gen_sig is
+    signal echantillon_index    : natural range 0 to NB_ECHANTILLON-1 :=0;           -- Intervalle d'échantillonnage
     
-    -- signals pour le présent et prochaine état
-    signal current_state : cntr_state;
-    signal next_state    : cntr_state;
-   
-   signal addr_int : unsigned(3 downto 0);
-   
-begin
+    type   tableau_cosinus is array (0 to NB_ECHANTILLON-1) of signed(7 downto 0);     -- Tableau contenant les valeurs d'amplitude  
+    signal cos_s : tableau_cosinus := (
+        "01111110", -- nouveau = 126 =          127-1 ancien: x"3F" = 63
+        "01101111", -- nouveau = 111 = sqrt(3)/2*127, ancien: x"3A" = 58
+        "01011011", -- nouveau = 91  = sqrt(2)/2*127, ancien: x"2C" = 44
+        "01000000", -- nouveau = 64  =       1/2*127, ancien: x"18" = 24
+        "00000000", -- 0
+        "11000000", -- nouveau =-64 =      -1/2*128, ancien: x"98" = -104
+        "10100101", -- nouveau =-91 =-sqrt(2)/2*128, ancien: x"AC" = -84
+        "10010001", -- nouveau =-111=-sqrt(3)/2*128, ancien: x"BA" = -70
+        "10000001", -- nouveau =-127=        -128+1, ancien: x"BF" = -65
+        "10010001", -- nouveau =-111=-sqrt(3)/2*128, ancien: x"BA" = -70
+        "10100101", -- nouveau =-91 =-sqrt(2)/2*128, ancien: x"AC" = -84
+        "11000000", -- nouveau =-64 =      -1/2*128, ancien: x"98" = -104
+        "00000000", -- 0
+        "01000000", -- nouveau = 64 =       1/2*127, ancien: x"18" = 24
+        "01011011", -- nouveau = 91 = sqrt(2)/2*127, ancien: x"2C" = 44
+        "01101111"  -- nouveau = 111= sqrt(3)/2*127, ancien: x"3A" = 58
+        );
+    -- Le MSB a gauche est le bit de signe, le point se situe entre le 2eme et 3eme bit ce qui donne une variation de [0.984375;-0.992187]
 
+begin
     process(i_clk)
     begin
         if rising_edge(i_clk) then
-            if i_rst = '1' then
-                addr_int <= (others => '0');
-                current_state <= UP;
+            if RESET_G = '1' then
+                echantillon_index <= 0;
+                o_cos <= (others => '0');
             else
                 if i_cen = '1' then
-                    case next_state is
-                        when UP =>
-                            addr_int <= addr_int + 1; 
-                        when DOWN =>
-                            addr_int <= addr_int - 1;
-                    end case;
-                    current_state <= next_state;
-                end if;
+                   o_cos <= cos_s(echantillon_index);
+                   echantillon_index <= (echantillon_index+1) mod NB_ECHANTILLON;
+                end if;   
             end if;
-        end if;
-   end process;
-
-
-    process(addr_int, current_state)
-    begin
-        case current_state is
-            when UP =>
-                if addr_int = 8 then
-                   next_state <= DOWN;
-                else
-                   next_state <= UP;
-                end if;
-            when DOWN =>
-                if addr_int = 0 then
-                   next_state <= UP;
-                else
-                   next_state <= DOWN;
-                end if;
-        end case;
-   end process;
-
-    ROM: Cos_rom
-        port map(
-            i_addr => addr_int,
-            o_dat  => o_sig
-        );
-
-end architecture;
+        end if; 
+    end process;
+    
+end rtl;
