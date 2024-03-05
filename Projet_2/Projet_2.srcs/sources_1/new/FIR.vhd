@@ -3,7 +3,7 @@
 -- Projet   : ELE739 Phase 2
 --------------------------------------------------------------------------------
 -- Fichier  : FIR.vhd
--- Auteur   : Guillaume et James
+-- Auteur   : James
 -- Création : 2024-02-13
 --------------------------------------------------------------------------------
 -- Description : FIR à étages multiples de pipeline

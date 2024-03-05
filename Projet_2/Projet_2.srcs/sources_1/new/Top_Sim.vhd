@@ -3,7 +3,7 @@
 -- Projet   : ELE739 Phase 2
 --------------------------------------------------------------------------------
 -- Fichier  : Top_Sim.vhd
--- Auteur   : Guillaume et James
+-- Auteur   : James
 -- Création : 2024-02-26
 --------------------------------------------------------------------------------
 -- Description : Top Level Entity pour rouler les simulations
@@ -15,6 +15,7 @@ use ieee.numeric_std.all;    -- Pour les types signed et unsigned
 entity Top_Sim is
   -- La section generic contient les paramètres de configuration du module.
   generic (
+    -- Coefficients du filtre FIR
     G_H_0          : integer  := 10; -- valeur maximum pour le délai
     G_H_1          : integer  := 10; -- valeur maximum pour le délai
     G_H_2          : integer  := 10; -- valeur maximum pour le délai
@@ -23,8 +24,11 @@ entity Top_Sim is
     G_H_5          : integer  := 10; -- valeur maximum pour le délai
     G_H_6          : integer  := 10; -- valeur maximum pour le délai
     G_H_7          : integer  := 10; -- valeur maximum pour le délai
+    -- Nombre d'échantillons a prendre
     NB_ECHANTILLON : positive := 16;
+    -- Taille de la sortie du generateur de signal
     BIT_WIDTH      : positive :=  8;
+    -- Taille de la sortie du module
     BUS_SIZE       : positive := 16
   );
 
@@ -37,8 +41,6 @@ entity Top_Sim is
     BUS_SORTIE : out std_logic_vector(BUS_SIZE-1 downto 0)
   );
 end;
-
-
 
 architecture rtl of Top_Sim is
     -- Déclaration du composant pour le FIR
@@ -81,7 +83,7 @@ architecture rtl of Top_Sim is
     -- Déclaration du composant pour le Multiplexeur de Sortie 
     component Mux is
         generic (  
-            BIT_WIDTH       : positive;      --Nombre de bits pour représenter l'amplitude
+            BIT_WIDTH       : positive;     --Nombre de bits pour représenter l'amplitude
             BUS_SIZE        : positive      --Nombre de bits pour le BUS DE SORTIE
         );
         port ( 
@@ -111,7 +113,6 @@ begin
             G_H_6 => G_H_6,
             G_H_7 => G_H_7
         )
-        
         port map(
             i_clk   => i_clk,
             RESET_G => RESET_G,

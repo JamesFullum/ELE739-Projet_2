@@ -1,0 +1,15 @@
+{signal: [
+  {name: 'clk'          , wave: 'p............................'},
+  {name: 'RESET_G'      , wave: '10...........................'},
+  {name: 'i_switch'     , wave: '0....1.......................'},
+  {name: 'o_cos'        , wave: '03...........................',data: 'Cos'},
+  {name: 'o_filtre'     , wave: '03.............3.........3...',data: '0 Transitoire Cos_Filtrer'},
+  {name: 'BUS_SORTIE'   , wave: '03...3.........3.........3...',data: 'Cos 0 Transitoire Cos_Filtrer'},
+],
+foot: {text:
+  ['tspan','',
+    ['tspan', {'dx':'-10'}, '10 périodes où les valeurs qui sortent du FIR sont zéro -> 10 de de valeurs transitoires -> Le cosinus filtré ']
+ ], tock: 0
+}
+}
+  
