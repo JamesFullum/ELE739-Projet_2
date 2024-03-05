@@ -135,7 +135,17 @@ begin
 -------------------------------
 ---         Output          ---
 -------------------------------
-
-    o_sig <= add_int(0);
+    process(i_clk)
+    begin
+        if rising_edge (i_clk) then
+            if RESET_G = '1' then
+                o_sig <= (others => '0');
+            else
+                if i_cen = '1' and i_fen = '1' then
+                    o_sig <= add_int(0);
+                end if;
+            end if;
+        end if;
+    end process;
 
 end architecture;
