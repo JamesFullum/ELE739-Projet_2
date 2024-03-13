@@ -115,8 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -124,16 +122,30 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param checkpoint.writeSynthRtdsInDcp 1
   set_param chipscope.maxJobs 4
   set_param runs.launchOptions { -jobs 16  }
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_2/Projet_2/Projet_2.runs/impl_1/Top_Exp.dcp
+OPTRACE "create in-memory project" START { }
+  create_project -in_memory -part xc7a35tcpg236-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+OPTRACE "create in-memory project" END { }
+OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_2/Projet_2/Projet_2.cache/wt [current_project]
   set_property parent.project_path C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_2/Projet_2/Projet_2.xpr [current_project]
   set_property ip_output_repo C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_2/Projet_2/Projet_2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
+OPTRACE "set parameters" END { }
+OPTRACE "add files" START { }
+  add_files -quiet C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_2/Projet_2/Projet_2.runs/synth_1/Top_Exp.dcp
+OPTRACE "read constraints: implementation" START { }
+  read_xdc C:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_2/Projet_2/Projet_2.srcs/constrs_1/imports/new/Basys_3.xdc
+OPTRACE "read constraints: implementation" END { }
+OPTRACE "add files" END { }
+OPTRACE "link_design" START { }
+  link_design -top Top_Exp -part xc7a35tcpg236-1 
+OPTRACE "link_design" END { }
+OPTRACE "gray box cells" START { }
+OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }

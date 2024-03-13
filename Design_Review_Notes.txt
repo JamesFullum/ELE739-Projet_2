@@ -1,0 +1,45 @@
+Sizes for each signal on RTL
+
+Show all values for simulation results
+
+Definition of Test
+	- Make sure the functions work
+
+Definition of verification
+	- Make sure the values are what we expect them to be
+
+Chronogram
+	- Make values explicit for chronograms
+	- i.e. 0.12, 0.24, 0.36... not cos(x)
+
+Mistakes
+	- Reset values when switch is switched (DONE)
+	- if i_fen = '1' -> premier echantillon and filter bascules reset (DONE)
+	- Place register to multiplexer (DONE)
+	- Make cos(x) symmetrical (DONE)
+	
+
+Plan
+	- Ressources consommer par notre design
+	- Timing report with frequency evaluated included
+
+
+Note
+
+Demo
+	1. Frequence max du filtre
+		a. Filtre tout seul comme top level
+		b. Sythèse + P+R
+		c. Analyse a une frequence non-atteignable 
+			-> Vivado va travailler plus fort pour optimiser le design
+			- Setup Slack
+			- Fmax
+
+	2. Verification Complète
+		a. Executer le Plan de Test
+			- Période Transitoire ILA
+				- Analog + Digital
+			- Régime Permanent 
+				- Analog
+			- Verif des modes
+				- Generateur ou filtre

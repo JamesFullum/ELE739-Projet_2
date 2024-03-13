@@ -76,7 +76,7 @@ begin
     process(i_clk)
     begin
         if rising_edge(i_clk) then
-            if RESET_G = '1' then
+            if RESET_G = '1' or i_fen = '0' then
                 for i in 0 to 15 loop
                     cos_int(i) <= (others => '0');
                 end loop;
@@ -97,7 +97,7 @@ begin
     process(i_clk)
     begin
         if rising_edge(i_clk) then
-            if RESET_G = '1' then
+            if RESET_G = '1' or i_fen = '0' then
                 for i in 0 to 7 loop 
                     mult_int(i) <= (others => '0');
                 end loop;
@@ -117,7 +117,7 @@ begin
     process(i_clk)
     begin
         if rising_edge(i_clk) then
-            if RESET_G = '1' then
+            if RESET_G = '1' or i_fen = '0' then
                 for i in 0 to 7 loop
                     add_int(i)   <= (others => '0');
                 end loop;
@@ -135,17 +135,17 @@ begin
 -------------------------------
 ---         Output          ---
 -------------------------------
-    process(i_clk)
-    begin
-        if rising_edge (i_clk) then
-            if RESET_G = '1' then
-                o_sig <= (others => '0');
-            else
-                if i_cen = '1' and i_fen = '1' then
+--    process(i_clk)
+--    begin
+--        if rising_edge (i_clk) then
+--            if RESET_G = '1' or i_fen = '0' then
+--                o_sig <= (others => '0');
+--            else
+--                if i_cen = '1' and i_fen = '1' then
                     o_sig <= add_int(0);
-                end if;
-            end if;
-        end if;
-    end process;
+--                end if;
+--            end if;
+--        end if;
+--    end process;
 
 end architecture;

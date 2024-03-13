@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="TB_Phase_2_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="TB_Phase_2" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="60,726.667 ns"></ZoomStartTime>
+      <ZoomEndTime time="61,726.667 ns"></ZoomEndTime>
+      <Cursor1Time time="61,560.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="204"></NameColumnWidth>
+      <ValueColumnWidth column_width="203"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="34" />
+   <wvobject fp_name="/TB_Phase_2/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/cen" type="logic">
+      <obj_property name="ElementShortName">cen</obj_property>
+      <obj_property name="ObjectShortName">cen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/switch" type="logic">
+      <obj_property name="ElementShortName">switch</obj_property>
+      <obj_property name="ObjectShortName">switch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/BUS_SORTIE" type="array">
+      <obj_property name="ElementShortName">BUS_SORTIE[15:0]</obj_property>
+      <obj_property name="ObjectShortName">BUS_SORTIE[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+      <obj_property name="CellHeight">100</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/add_int" type="array">
+      <obj_property name="ElementShortName">add_int[7:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">add_int[7:0][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int" type="array">
+      <obj_property name="ElementShortName">mult_int[7:0][15:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_int[7:0][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">15</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[7]" type="array">
+         <obj_property name="ElementShortName">[7][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[6]" type="array">
+         <obj_property name="ElementShortName">[6][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[5]" type="array">
+         <obj_property name="ElementShortName">[5][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[4]" type="array">
+         <obj_property name="ElementShortName">[4][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[3]" type="array">
+         <obj_property name="ElementShortName">[3][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[2]" type="array">
+         <obj_property name="ElementShortName">[2][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[1]" type="array">
+         <obj_property name="ElementShortName">[1][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+      <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/mult_int[0]" type="array">
+         <obj_property name="ElementShortName">[0][15:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][15:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">15</obj_property>
+         <obj_property name="radix_otherWidth">0</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/cos_int" type="array">
+      <obj_property name="ElementShortName">cos_int[15:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">cos_int[15:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/i_cos" type="array">
+      <obj_property name="ElementShortName">i_cos[7:0]</obj_property>
+      <obj_property name="ObjectShortName">i_cos[7:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">7</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_0" type="other">
+      <obj_property name="ElementShortName">G_H_0</obj_property>
+      <obj_property name="ObjectShortName">G_H_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_1" type="other">
+      <obj_property name="ElementShortName">G_H_1</obj_property>
+      <obj_property name="ObjectShortName">G_H_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_2" type="other">
+      <obj_property name="ElementShortName">G_H_2</obj_property>
+      <obj_property name="ObjectShortName">G_H_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_3" type="other">
+      <obj_property name="ElementShortName">G_H_3</obj_property>
+      <obj_property name="ObjectShortName">G_H_3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_4" type="other">
+      <obj_property name="ElementShortName">G_H_4</obj_property>
+      <obj_property name="ObjectShortName">G_H_4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_5" type="other">
+      <obj_property name="ElementShortName">G_H_5</obj_property>
+      <obj_property name="ObjectShortName">G_H_5</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_6" type="other">
+      <obj_property name="ElementShortName">G_H_6</obj_property>
+      <obj_property name="ObjectShortName">G_H_6</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/G_H_7" type="other">
+      <obj_property name="ElementShortName">G_H_7</obj_property>
+      <obj_property name="ObjectShortName">G_H_7</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/NB_ECHANTILLON" type="other">
+      <obj_property name="ElementShortName">NB_ECHANTILLON</obj_property>
+      <obj_property name="ObjectShortName">NB_ECHANTILLON</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/BIT_WIDTH" type="other">
+      <obj_property name="ElementShortName">BIT_WIDTH</obj_property>
+      <obj_property name="ObjectShortName">BIT_WIDTH</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/BUS_SIZE" type="other">
+      <obj_property name="ElementShortName">BUS_SIZE</obj_property>
+      <obj_property name="ObjectShortName">BUS_SIZE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/i_clk" type="logic">
+      <obj_property name="ElementShortName">i_clk</obj_property>
+      <obj_property name="ObjectShortName">i_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/RESET_G" type="logic">
+      <obj_property name="ElementShortName">RESET_G</obj_property>
+      <obj_property name="ObjectShortName">RESET_G</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/i_cen" type="logic">
+      <obj_property name="ElementShortName">i_cen</obj_property>
+      <obj_property name="ObjectShortName">i_cen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/i_fen" type="logic">
+      <obj_property name="ElementShortName">i_fen</obj_property>
+      <obj_property name="ObjectShortName">i_fen</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/o_sig" type="array">
+      <obj_property name="ElementShortName">o_sig[15:0]</obj_property>
+      <obj_property name="ObjectShortName">o_sig[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/h_int" type="array">
+      <obj_property name="ElementShortName">h_int[7:0][5:0]</obj_property>
+      <obj_property name="ObjectShortName">h_int[7:0][5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_0" type="other">
+      <obj_property name="ElementShortName">G_H_0</obj_property>
+      <obj_property name="ObjectShortName">G_H_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_1" type="other">
+      <obj_property name="ElementShortName">G_H_1</obj_property>
+      <obj_property name="ObjectShortName">G_H_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_2" type="other">
+      <obj_property name="ElementShortName">G_H_2</obj_property>
+      <obj_property name="ObjectShortName">G_H_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_3" type="other">
+      <obj_property name="ElementShortName">G_H_3</obj_property>
+      <obj_property name="ObjectShortName">G_H_3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_4" type="other">
+      <obj_property name="ElementShortName">G_H_4</obj_property>
+      <obj_property name="ObjectShortName">G_H_4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_5" type="other">
+      <obj_property name="ElementShortName">G_H_5</obj_property>
+      <obj_property name="ObjectShortName">G_H_5</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_6" type="other">
+      <obj_property name="ElementShortName">G_H_6</obj_property>
+      <obj_property name="ObjectShortName">G_H_6</obj_property>
+   </wvobject>
+   <wvobject fp_name="/TB_Phase_2/DUT/FIR_INST/G_H_7" type="other">
+      <obj_property name="ElementShortName">G_H_7</obj_property>
+      <obj_property name="ObjectShortName">G_H_7</obj_property>
+   </wvobject>
+</wave_config>

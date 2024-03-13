@@ -31,9 +31,9 @@ entity Top_Exp is
     BUS_SIZE       : positive := 16
   );
   port (
-    clk  : in std_logic; -- Horloge du Basys3
-    btnC : in std_logic; -- Bouton pour le reset
-    sw   : in std_logic; -- Interrupteur pour contrôler la sortie du module
+    clk  : in  std_logic; -- Horloge du Basys3
+    btnC : in  std_logic; -- Bouton pour le reset
+    sw   : in  std_logic_vector(0 downto 0); -- Interrupteur pour contrôler la sortie du module
     led  : out std_logic_vector(15 downto 0)
   );
   
@@ -95,23 +95,12 @@ architecture rtl of Top_Exp is
     end component;
     
     -- Signaux internes du Top Experimental
-    signal sw_int         : std_logic;
     signal cen_int        : std_logic;
-    signal RESET_G_int    : std_logic;
     signal BUS_SORTIE_int : std_logic_vector(BUS_SIZE-1 downto 0);
 
 begin
 
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            -- Inputs du Basys 3
-            RESET_G_int <= btnC;
-            sw_int      <= sw;
-            --Outputs du Basys 3
-            led         <= BUS_SORTIE_int;
-        end if;
-    end process;
+    led         <= BUS_SORTIE_int;
 
     -- Instantiation du module
     DUT : Top_Sim
@@ -127,21 +116,21 @@ begin
         )
         port map (
             i_clk      => clk,
-            RESET_G    => RESET_G_int,
+            RESET_G    => btnC,
             i_cen      => cen_int,
-            i_switch   => sw_int,
+            i_switch   => sw(0),
             BUS_SORTIE => BUS_SORTIE_int
         );
 
      -- Instantiation du PRESCALAR
     PRESCALAR_INST: PRESCALAR
         generic map(
-            G_DELAI      => 100000000,
-            G_DELAI_SIZE => 27
+            G_DELAI      => 1,
+            G_DELAI_SIZE => 1
         )
         port map(
             i_clk => clk,
-            i_rst => RESET_G_int,
+            i_rst => btnC,
             i_cen => '1',
             o_fin => cen_int
         ); 
@@ -150,9 +139,9 @@ begin
      ILA_INST : ila_0
         port map(
             clk     => clk,
-            probe0  => RESET_G_int,
+            probe0  => btnC,
             probe1  => cen_int,
-            probe2  => sw_int,
+            probe2  => sw(0),
             probe3  => BUS_SORTIE_int  
         );
 

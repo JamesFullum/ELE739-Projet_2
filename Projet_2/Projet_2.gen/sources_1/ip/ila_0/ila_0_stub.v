@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-// Date        : Tue Mar  5 14:14:26 2024
+// Date        : Tue Mar 12 12:31:07 2024
 // Host        : LAPTOP-UPJBM0EE running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/james/ETS/Hiver_2024/ELE739/ELE739-Projet_2/Projet_2/Projet_2.gen/sources_1/ip/ila_0/ila_0_stub.v

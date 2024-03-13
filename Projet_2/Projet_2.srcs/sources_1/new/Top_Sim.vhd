@@ -76,6 +76,7 @@ architecture rtl of Top_Sim is
             i_clk   : in  std_logic;
             RESET_G : in  std_logic;
             i_cen   : in  std_logic;
+            i_fen   : in  std_logic;
             o_cos   : out signed(7 downto 0)
         );
     end component;
@@ -87,6 +88,9 @@ architecture rtl of Top_Sim is
             BUS_SIZE        : positive      --Nombre de bits pour le BUS DE SORTIE
         );
         port ( 
+            i_clk           : in std_logic;
+            i_cen           : in std_logic;
+            RESET_G         : in std_logic;
             i_mode          : in std_logic;
             i_generateur    : in signed(BIT_WIDTH-1 downto 0);
             i_filtre        : in signed(BUS_SIZE-1 downto 0);
@@ -132,6 +136,7 @@ begin
         port map(
             i_clk   => i_clk,
             RESET_G => RESET_G,
+            i_fen   => fen_int,
             i_cen   => i_cen,
             o_cos   => cos_int
         );
@@ -143,6 +148,9 @@ begin
             BUS_SIZE     => BUS_SIZE     --Nombre de bits pour le BUS DE SORTIE
         )
         port map(
+            i_clk        => i_clk,
+            i_cen        => i_cen,
+            RESET_G      => RESET_G,
             i_mode       => i_switch,
             i_generateur => cos_int,
             i_filtre     => cos_fir_int, 
